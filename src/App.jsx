@@ -8,7 +8,6 @@ import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import ImageModal from "./components/ImageModal/ImageModal";
 import SearchBar from "./components/SearchBar/SearchBar";
-
 function App() {
   const [photo, setPhoto] = useState([]);
   const [isload, setIsLoad] = useState(false);
