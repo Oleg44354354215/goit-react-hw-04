@@ -18,18 +18,6 @@
   transform: scale(1.05);
 }
 
-.img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.img:hover {
-  opacity: 0.8;
-}
-
 /* Медіа-запити для адаптивності */
 @media (min-width: 1024px) {
   .gallery {

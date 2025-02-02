@@ -1,4 +1,4 @@
-import s from "./ImageGallery.module.css";
+import s from "./ImageCard.module.css";
 
 const ImageCard = ({ item }) => {
   return (

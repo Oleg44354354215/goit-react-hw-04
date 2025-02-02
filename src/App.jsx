@@ -8,6 +8,7 @@ import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import ImageModal from "./components/ImageModal/ImageModal";
 import SearchBar from "./components/SearchBar/SearchBar";
+import toast from "react-hot-toast";
 function App() {
   const [photo, setPhoto] = useState([]);
   const [isload, setIsLoad] = useState(false);
@@ -35,6 +36,10 @@ function App() {
   }, [query, page]);
 
   const getTypeDate = (item) => {
+    if (!item.trim()) {
+      toast.error("Search query cannot be empty!");
+      return;
+    }
     setQuery(item);
     setPhoto([]);
     setPage(1);
