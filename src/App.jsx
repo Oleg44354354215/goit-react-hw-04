@@ -2,13 +2,12 @@ import { useState } from "react";
 import "./App.css";
 import { useEffect } from "react";
 import { fetchDate } from "./services/api";
-import ImageGalery from "./components/ImageGalery/ImageGalery";
+import ImageGallery from "./components/ImageGallery/ImageGallery";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import ImageModal from "./components/ImageModal/ImageModal";
 import SearchBar from "./components/SearchBar/SearchBar";
-import toast from "react-hot-toast";
 function App() {
   const [photo, setPhoto] = useState([]);
   const [isload, setIsLoad] = useState(false);
@@ -36,10 +35,6 @@ function App() {
   }, [query, page]);
 
   const getTypeDate = (item) => {
-    if (!item.trim()) {
-      toast.error("Search query cannot be empty!");
-      return;
-    }
     setQuery(item);
     setPhoto([]);
     setPage(1);
@@ -56,7 +51,7 @@ function App() {
   return (
     <>
       <SearchBar getTypeDate={getTypeDate} />
-      <ImageGalery photo={photo} onClick={openModal} />
+      <ImageGallery photo={photo} onClick={openModal} />
       {photo.length > 0 && <LoadMoreBtn setPage={setPage} />}
       {photo.length === 0 && <p>List is empty! Please search sth:)</p>}
       <ImageModal

@@ -1,9 +1,14 @@
 import { useState } from "react";
 import s from "./SearchBar.module.css";
+import toast from "react-hot-toast";
 const SearchBar = ({ getTypeDate }) => {
   const [cur, setCur] = useState("");
   const handleForm = (e) => {
     e.preventDefault();
+    if (cur.trim() === "") {
+      toast.error("Будь ласка, введіть текст для пошуку!");
+      return;
+    }
     getTypeDate(cur);
   };
   return (
